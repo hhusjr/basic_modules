@@ -1,11 +1,11 @@
 `timescale 1ns / 1ns
 
 
-module mux81_8b_tb();
-    reg [2:0] a;
+module mux81_16b_tb();
+    reg [3:0] a;
     wire [7:0] d;
     
-    mux81_8b dev(
+    mux81_16b dev(
         .c0(0),
         .c1(1),
         .c2(2),
@@ -14,6 +14,14 @@ module mux81_8b_tb();
         .c5(5),
         .c6(6),
         .c7(7),
+        .c8(8),
+        .c9(9),
+        .c10(10),
+        .c11(11),
+        .c12(12),
+        .c13(13),
+        .c14(14),
+        .c15(15),
         
         .a(a),
         .en(1),
@@ -25,7 +33,7 @@ module mux81_8b_tb();
         a = 0;
         while (1) begin
             #5;
-            if (a === 3'b111) begin
+            if (a === 4'b1111) begin
                 $stop;            
             end
             a = a + 1;
